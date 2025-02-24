@@ -1,0 +1,17 @@
+.swiper-button-next,
+.swiper-button-prev {
+    @apply bg-gradient-to-r from-pink-500 to-yellow-500 bg-clip-text text-transparent;
+}
+
+.swiper-button-next:hover,
+.swiper-button-prev:hover {
+    @apply bg-gradient-to-r from-pink-400 to-yellow-400 bg-clip-text text-transparent;
+}
+
+.swiper-pagination-bullet {
+    @apply bg-pink-500 w-2 h-2 rounded-full opacity-30;
+}
+
+.swiper-pagination-bullet-active {
+    @apply bg-gradient-to-r from-pink-400 to-yellow-400 w-2 h-2 rounded-full opacity-100;
+}

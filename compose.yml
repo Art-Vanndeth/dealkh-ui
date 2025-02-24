@@ -1,0 +1,19 @@
+version: '3'
+services:
+  dealkh-ui:
+    image: dealkh-ui
+    container_name: dealkh-ui
+    build:
+      context: .
+      dockerfile: Dockerfile
+    restart: always
+    ports:
+      - 3102:3000
+    environment:
+      - NODE_ENV=production
+      - GENERATE_SOURCEMAP=false
+    networks:
+      - data_analytics
+networks:
+  data_analytics:
+    external: true
