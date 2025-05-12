@@ -19,8 +19,8 @@ const ShopProfile = ({ params }: Props) => {
   });
 
   const shopProfiles = data?.payload?.list.find(
-    (shopProfile: ShopDetail) => shopProfile.slug === slug
-  );
+    (shopProfile: any) => shopProfile.slug === slug
+  ) as ShopDetail | undefined;
 
   if (!shopProfiles) {
     return <p>Shop Not Founded</p>;

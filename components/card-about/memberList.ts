@@ -17,7 +17,7 @@ export const MemberList = [
   },
   {
     img: '/images/members/vandeth.jpg',
-    role: 'Back End developer',
+    role: 'Full Stack developer',
     name: 'Art Vandeth',
   },
   {

@@ -5,7 +5,11 @@ import { ShopsResponse } from '@/libs/difinition';
 export const shopApi = ecommerceApi.injectEndpoints({
 
   endpoints: (builder) => ({
-    getAllShops: builder.query<ShopsResponse,{page:number;size:number;}>({
+      getShops: builder.query<ShopsResponse,{page:number;size:number;}>({
+        query: ({ page , size }) => 
+          `/shops?page=${page}&size=${size}`,
+      }),
+      getAllShops: builder.query<ShopsResponse,{page:number;size:number;}>({
         query: ({ page , size  }) => 
           `/shops?page=${page}&size=${size}`,
       }),
@@ -81,6 +85,7 @@ export const shopApi = ecommerceApi.injectEndpoints({
 });
 
 export const {
+    useGetShopsQuery,
     useGetAllShopsQuery,
     useGetShopNearbyQuery,
     useGetShopBySlugQuery,

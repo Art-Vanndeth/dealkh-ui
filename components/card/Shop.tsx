@@ -9,8 +9,8 @@ export default function ShopCardComponent() {
   const { data, isLoading, error } = useGetProductsQuery({
     page: 1,
     size: 3,
-    field: '',
-    fieldName: '',
+    discountType: '',
+    category: null,
   });
   // console.log('data', data);
   // console.log('error', error);

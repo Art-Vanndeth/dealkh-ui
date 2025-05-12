@@ -10,10 +10,18 @@ export const metadata: Metadata = {
   description: 'This is a Setting Page',
 };
 
+
 export default function UpdateProfilePage() {
+  const closeModal = () => {
+    // Implementation for closing modal
+  };
+
+  const refetchProfile = () => {
+    // Implementation for refetching profile
+  };
   return (
     <>
-      <UpdateUserProfileComponent />
+      <UpdateUserProfileComponent closeModal={closeModal} refetchProfile={refetchProfile} />
     </>
   );
 }

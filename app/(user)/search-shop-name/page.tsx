@@ -15,16 +15,7 @@ const ShopsPage = () => {
   const { data, isLoading, error } = useGetShopsQuery({
     page: 1,
     size: 10,
-    field: '',
-    fieldName: '',
   });
-
-  const filteredProducts = data?.payload.list.filter(
-    (product: ShopDetailFake) => {
-      const productName = product.name.toLowerCase();
-      return productName.includes(searchValue.toLowerCase());
-    }
-  );
 
   if (isLoading) {
     return (
@@ -40,9 +31,7 @@ const ShopsPage = () => {
 
   return (
     <div>
-      {filteredProducts?.map((shop: ShopDetailFake) => (
-        <ShopNearbyComponent key={shop.slug} shop={shop} />
-      ))}
+    
     </div>
   );
 };
