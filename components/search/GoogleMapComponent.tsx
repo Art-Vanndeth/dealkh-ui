@@ -78,16 +78,24 @@ const GoogleMapComponent: React.FC<GoogleMapProps> = ({ apiKey }) => {
   }, [data]);
 
   const findNearbyShops = (lat: number, lng: number) => {
-    if (data?.payload?.list) {
-      const filteredShops = data.payload.list.filter((shop: ShopDetail) => {
+  if (data?.payload?.list) {
+    const filteredShops = data.payload.list
+      .map((shop: any): ShopDetail => ({
+        ...shop,
+        isDisable: false, // Provide default values for missing properties
+        cover: '',
+        updateBy: '',
+      }))
+      .filter((shop: ShopDetail) => {
         const [shopLat, shopLng] = shop.location.split(',').map(parseFloat);
         const distance = calculateDistance(lat, lng, shopLat, shopLng);
-        return distance <= 0.5; // 0.5 is 500m square nearby;
+        return distance <= 0.5; // 0.5 is 500m square nearby
       });
 
-      setNearbyShops(filteredShops);
-    }
-  };
+    return filteredShops;
+  }
+  return [];
+};
 
   const calculateDistance = (
     lat1: number,

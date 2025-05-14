@@ -26,7 +26,7 @@ export default function CartComponent() {
   useEffect(() => {
     // Filter unique products based on their IDs
     const unique = products.filter(
-      (product, index, self) =>
+      (product: CartProductType, index: number, self: CartProductType[]) =>
         index === self.findIndex((t) => t.slug === product.slug)
     );
 
@@ -166,7 +166,7 @@ export default function CartComponent() {
               <TableBody items={uniqueProducts}>
                 {(product) => (
                   <TableRow key={product.slug}>
-                    {(columnKey) => <TableCell>{renderCell(product,columnKey)}</TableCell>}
+                    {(columnKey) => <TableCell>{renderCell(product, columnKey as string)}</TableCell>}
                   </TableRow>
                 )}
               </TableBody>

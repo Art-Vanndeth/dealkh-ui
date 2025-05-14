@@ -5,8 +5,9 @@ import { useField } from 'formik';
 interface CustomSelectProps {
   label: string;
   name: string;
-  options: { value: string; label: string }[];
-  placeholder?: string;
+  options: { value: any; label: any }[];
+  placeholder: string;
+  onChange?: (e: React.ChangeEvent<HTMLSelectElement>) => void; // Add this line
 }
 
 const CustomSelect: React.FC<CustomSelectProps> = ({
@@ -14,6 +15,7 @@ const CustomSelect: React.FC<CustomSelectProps> = ({
   name,
   options,
   placeholder,
+  onChange,
 }) => {
   const [field, meta, helpers] = useField(name);
   const [isOpen, setIsOpen] = useState(false);

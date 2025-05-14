@@ -7,7 +7,7 @@ import {
   Marker,
 } from '@react-google-maps/api';
 import { useCallback, useEffect, useState } from 'react';
-import { Shop } from '@/types/shop';
+import { Shop } from '@/components/search/shop';
 
 type MapComponentProps = {
   shops: Shop[];
